@@ -4,11 +4,10 @@ import Burger from '../../components/Burger/Burger';
 
 class BurgerBuilder extends React.Component {
     state = {
-        ingredients: {
-            breadTop:1,
+        ingredients: {            
             salad: 2,
             meat: 2,
-            breadBottom:1
+            cheese: 1            
         }
 
 
