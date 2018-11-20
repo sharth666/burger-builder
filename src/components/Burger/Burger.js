@@ -4,13 +4,9 @@ import Ingredient from './Ingredients/Ingredient'
 
 const burger = (props) => {
     const ingredients = props.ingredients;
-
-
-
-    
-    //breadTop: 1
-    const ingredientKeys = [];  //Object.keys(ingredients);
-    const ingredientValues = Object.values(ingredients);
+    const addIngredientsMessage = <p>Bitte Zutaten hinzufügen</p>
+    const ingredientKeys = [];  
+    // const ingredientValues = Object.values(ingredients);
     
     for (var prop in ingredients) {
         if (ingredients.hasOwnProperty(prop)) { 
@@ -19,14 +15,15 @@ const burger = (props) => {
         }
       }
 
-    const mappedIngredient = ingredientKeys.map(ingredient => {        
-        return (<Ingredient type={ingredient} key={Math.random()}/>);
+    const mappedIngredients = ingredientKeys.map(ingredient => {        
+        return (<Ingredient type={ingredient} key={Math.random()*10}/>);
     });
 
     return (
         <div className={classes.burger}>
             <Ingredient type="bread-top"/>
-                {mappedIngredient}
+                {mappedIngredients}
+                {mappedIngredients.length < 1 ? addIngredientsMessage: ""}                 
             <Ingredient type="bread-bottom"/>
         </div>
     );

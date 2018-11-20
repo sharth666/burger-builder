@@ -22,6 +22,9 @@ class Ingredient extends Component {
             case "bread-top":
                 ingredient = <div className={classes.breadTop}></div> 
             break;  
+            default:
+                ingredient =<div></div>
+            break;
         }
         return ingredient;
     }

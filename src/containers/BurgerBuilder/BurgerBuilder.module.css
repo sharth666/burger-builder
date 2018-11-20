@@ -1,0 +1,21 @@
+.controlsContainer {
+    background-color: #bd6d3f;
+    text-align:center;
+}
+
+.totalPrice {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16pt;
+    font-weight: bold;
+}
+
+.orderButton {
+    background-color:#ffccae;    
+    font-size: 12pt;
+    padding: 5px;
+    margin:5px;
+    border-color: #ffccae;  
+    border-radius: 10%;
+    /* box-shadow: 1px 0.5px 5px #ffece2; */
+    
+}

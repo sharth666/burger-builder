@@ -1,0 +1,25 @@
+
+.ingredientContainer {
+    display: flex;
+    justify-content:center;
+    background-color: #f5b46a
+  }
+
+.ingredientContainer > * {
+    flex: 1;
+    max-width:50px;
+    margin:6px 4px;
+}
+
+.ingredientContainer button {
+    padding:5px;
+    min-height: 20px;
+    max-height:30px;
+    box-shadow:2px 2px 5px #cac2b9;
+}
+
+.ingredientContainer .ingredientLabel {
+    margin-right:20px;
+    font-size: 14pt;
+    font-weight:bold
+}
