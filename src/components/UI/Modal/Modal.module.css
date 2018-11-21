@@ -1,0 +1,44 @@
+.modal {
+    position:fixed;
+    z-index:500;
+    padding: 8px 15px;
+    box-shadow: 4px 4px 6px #aaaaaa;
+    width: 20%;
+    left: calc(50% - 150px);
+    top: 30%;
+    display:block;
+    min-width:250px;
+    opacity:0;
+    background-color: rgb(255, 237, 215);
+    transform:translateY(-100vh);
+    transition: opacity .5s ease-out;
+}
+
+@media (min-width: 600px) {
+    .modal {
+        width:300px;
+        left: calc(50% - 180px);
+    }
+}
+
+.modal.show {
+    opacity:1;
+    transform:translateY(0);
+}
+
+ul {
+    list-style-type: none;
+}
+
+.okButton {
+    background-color:#ffccae;    
+    font-size: 12pt;
+    padding: 5px;
+    margin:5px;
+    border-color: #ffccae;  
+    border-radius: 10%;
+    /* box-shadow: 1px 0.5px 5px #ffece2; */   
+    position:absolute;
+    bottom:2px;
+    right:10px; 
+}

@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import classes from './IngredientControls.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class IngredientBuilder extends React.Component {
 

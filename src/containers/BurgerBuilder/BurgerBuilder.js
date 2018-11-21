@@ -2,7 +2,9 @@ import React from 'react';
 import Aux from '../../hoc/Auxi';
 import Burger from '../../components/Burger/Burger';
 import IngredientBuilder from '../IngredientControls/IngredientControls';
+import Modal from '../../components/UI/Modal/Modal';
 import classes from './BurgerBuilder.module.css';
+
 
 const INGREDIENT_PRICES = {
     salad: 0.5,
@@ -26,7 +28,8 @@ class BurgerBuilder extends React.Component {
             meat: 0,
             cheese: 0
         },
-        totalPrice: 0
+        totalPrice: 0,
+        showModal:false
     }    
 
     onClickIngredientPlusHandler = (event) => {
@@ -48,9 +51,12 @@ class BurgerBuilder extends React.Component {
         const ingredientName = event.target.id;
         const currentIngredients= this.state.ingredients;
 
-        let totalPrice = this.state.totalPrice;
-        totalPrice -= INGREDIENT_PRICES[ingredientName]; 
-        this.setState({totalPrice:totalPrice})
+        if(currentIngredients[ingredientName] > 0)
+        {
+            let totalPrice = this.state.totalPrice;
+            totalPrice -= INGREDIENT_PRICES[ingredientName]; 
+            this.setState({totalPrice:totalPrice})
+        }
         
         if(currentIngredients[ingredientName] > 0)
             currentIngredients[ingredientName]--;  
@@ -59,25 +65,42 @@ class BurgerBuilder extends React.Component {
         });
     }
 
+    openModalHandler = () => {
+        this.setState({showModal:true});
+    }
+
+    closeModalHandler = () => {
+        this.setState({showModal:false});
+    }
+
     render(){
         const actualIngredients = this.state.ingredients;
-        const allIngredientControls = Object.keys(actualIngredients).map(ingredient => {
+        const ingredientControls = Object.keys(actualIngredients).map(ingredient => {
             return (
-                <IngredientBuilder type={INGREDIENT_TYPES[ingredient]} ingredient={ingredient}
+                <IngredientBuilder key={ingredient} type={INGREDIENT_TYPES[ingredient]} ingredient={ingredient}
                     onMinusClick={this.onClickIngredientMinusHandler} 
                     onPlusClick={this.onClickIngredientPlusHandler} />
             )
         });
 
+        const ingredientList = Object.keys(actualIngredients).map(ingredient => {            
+            return (        
+                <Aux key={ingredient}>
+                    <li>{INGREDIENT_TYPES[ingredient]}: {actualIngredients[ingredient]}</li>
+                </Aux>
+            )
+        });
+
         return (
-            <Aux>      
+            <Aux>    
+                <Modal ingredients={ingredientList} show={this.state.showModal} closeModal={this.closeModalHandler}/>  
                 <Burger ingredients={this.state.ingredients} />
                 <div className={classes.controlsContainer}>
                     <div style={{padding:"8px"}}>
                         <span className={classes.totalPrice}>Preis: {this.state.totalPrice.toFixed(2)}</span>
                     </div>
-                    {allIngredientControls}
-                    <button className={classes.orderButton}>Bestellen</button>
+                    {ingredientControls}
+                    <button className={classes.orderButton} onClick={this.openModalHandler}>Bestellen</button>
                 </div>
             </Aux>
         );
