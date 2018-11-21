@@ -83,12 +83,17 @@ class BurgerBuilder extends React.Component {
             )
         });
 
-        const ingredientList = Object.keys(actualIngredients).map(ingredient => {            
-            return (        
-                <Aux key={ingredient}>
-                    <li>{INGREDIENT_TYPES[ingredient]}: {actualIngredients[ingredient]}</li>
-                </Aux>
-            )
+        const ingredientList = Object.keys(actualIngredients).map(ingredient => {    
+            if(actualIngredients[ingredient] > 0)
+            {       
+                return (        
+                    <Aux key={ingredient}>
+                        <li>{INGREDIENT_TYPES[ingredient]}: {actualIngredients[ingredient]}x</li>
+                    </Aux>
+                )            
+            }
+            else
+                return null;
         });
 
         return (
