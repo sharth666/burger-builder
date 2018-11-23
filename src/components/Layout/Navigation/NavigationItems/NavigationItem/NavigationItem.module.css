@@ -1,0 +1,30 @@
+.navigationItem {
+    margin: 5px;
+    padding: 0;
+    display: flex;
+    cursor: pointer; 
+}
+
+a:link {
+    color: rgb(245, 197, 147);
+    text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+    color: rgb(238, 157, 71);
+    text-decoration: none;
+
+}
+
+/* mouse over link */
+a:hover {
+    color: rgb(247, 225, 203);
+    text-decoration: underline;
+}
+
+/* selected link */
+a:active {
+    color: rgb(245, 197, 147);
+    text-decoration: none;
+}

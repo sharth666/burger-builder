@@ -29,6 +29,7 @@ class BurgerBuilder extends React.Component {
             cheese: 0
         },
         totalPrice: 0,
+        purchase: false,
         showModal:false
     }    
 
@@ -70,7 +71,7 @@ class BurgerBuilder extends React.Component {
     }
 
     closeModalHandler = () => {
-        this.setState({showModal:false});
+        this.setState({showModal:false, purchase:false});
     }
 
     render(){
