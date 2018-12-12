@@ -5,8 +5,8 @@
     list-style: none;
     display: flex;
     align-items: center;
-    align-content: center;
-    justify-content:space-between;
-    color: rgb(245, 197, 147);
+    justify-content:space-between;    
     box-sizing: border-box;
+    height:100%;
+    z-index:100;
 }
